@@ -15,7 +15,9 @@ public class Job implements Comparable {
  
  public String toString(){
 	
-	return "dt: "+this.Dt;
+	return "dt: "+this.Dt
+		  +" Weight:"+this.weight
+		  +" Pt:"+this.Pt;
  }
 
 @Override

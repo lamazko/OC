@@ -48,7 +48,7 @@ public class Tools {
    
    public ArrayList<Integer> firstimprovement (int current, Job[] data, ArrayList<ArrayList<Integer>> solutions){
 	   for (ArrayList<Integer> l: solutions){
-		   if (this.score(data, l) > current)
+		   if (this.score(data, l) < current)
 			   return l;
 	   }
 	return null;
@@ -57,7 +57,7 @@ public class Tools {
    
    public ArrayList<Job> firstimprovementS (int current, ArrayList<ArrayList<Job>> solutions){
 	   for (ArrayList<Job> l: solutions){
-		   if (this.score(l) > current)
+		   if (this.score(l) < current)
 			   return l;
 	   }
 	return null;
@@ -69,7 +69,7 @@ public class Tools {
 	   ArrayList<Integer> bestsol = null;
 	   for (ArrayList<Integer> l: solutions){
 		   int score = this.score(data,l);
-		   if ( score > bestscore)
+		   if ( score < bestscore)
 			   bestscore = score;
 		   	   bestsol = l;
 	   }
@@ -83,9 +83,10 @@ public class Tools {
 	   ArrayList<Job> bestsol = null;
 	   for (ArrayList<Job> l: solutions){
 		   int score = this.score(l);
-		   if ( score > bestscore)
+		   if ( score < bestscore){
 			   bestscore = score;
 		   	   bestsol = l;
+		   }
 	   }
 	return bestsol;
 	   

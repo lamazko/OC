@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+import instancesReader.Loader;
+
 public class HeuristicSolver {
 	Job[][] data;
 	
@@ -30,23 +32,18 @@ public class HeuristicSolver {
 	
 	public ArrayList<Job> SortedSol(int InstanceNumber){
 	ArrayList<Job> solution = new ArrayList<>(Arrays.asList(data[InstanceNumber])); 
-	System.out.println(solution.toString());
+	//System.out.println(solution.toString());
 	Collections.sort(solution);
-	System.out.println(solution.toString());
+	//System.out.println(solution.toString());
 	return solution;
 }
 	
 	
 	public ArrayList<Job> Rsol(int InstanceNumber){
-		ArrayList<Integer> solution = new ArrayList<Integer>();
-		for (int i=0;i <(data[InstanceNumber].length);++i){
-		solution.add(i);
-		}
-		Collections.shuffle(solution);
+		
 		ArrayList<Job> solutionJob = new ArrayList<>(Arrays.asList(data[InstanceNumber])); 
-		for (Integer j: solution){
-			solutionJob.add(data[InstanceNumber][j]);
-		}
+		
+		Collections.shuffle(solutionJob);
 		return solutionJob;
 		
 	}
@@ -61,6 +58,17 @@ public class HeuristicSolver {
 
 		 }
 		return null;
+	}
+	
+	public static void main(String [] args){
+		HeuristicSolver s = new HeuristicSolver(Loader.readF(100,40));
+		Tools t = new Tools();
+		ArrayList<Job> sol = s.HeurSolve("Rand", 0);
+		System.out.println(s.data[0].length);
+		System.out.println(sol.size());
+		System.out.println(t.score(sol));
+	
+
 	}
 	
 	

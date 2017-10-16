@@ -10,7 +10,7 @@ public class Loader {
 
 	private static final String FILENAME = "wt100.txt";
 	
-	public Job[][] readF(int InstanceSize, int InstanceNumber){
+	public static Job[][] readF(int InstanceSize, int InstanceNumber){
 		int[][][] data = new int[InstanceNumber][InstanceSize][3];
 		Job[][] jobs = new Job[InstanceNumber][InstanceSize];
 		BufferedReader br = null;
